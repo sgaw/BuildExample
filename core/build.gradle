@@ -1,25 +1,15 @@
-apply plugin: 'com.android.application'
+// Generate a library (AAR) instead of an app (APK)
+apply plugin: 'com.android.library'
 
 android {
-    // TODO(sgaw): Use common build variables (ex., Android properties) across modules
-    // See tip: http://tools.android.com/tech-docs/new-build-system/tips
-//    compileSdkVersion rootProject.ext.compileSdkVersion
-//    buildToolsVersion rootProject.ext.buildToolsVersion
-
     compileSdkVersion 22
     buildToolsVersion "23.0.0 rc2"
 
-
     defaultConfig {
-        applicationId "com.playground.sgaw.buildexample"
         minSdkVersion 18
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
-
-        ndk {
-            moduleName "math-jni"
-        }
     }
     buildTypes {
         release {
@@ -32,6 +22,4 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
-    // Add example library dependency
-    compile project(':core')
 }
